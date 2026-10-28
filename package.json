@@ -1,0 +1,56 @@
+{
+    "name": "the-watcher",
+    "displayName": "The Watcher",
+    "version": "0.0.1",
+    "publisher": "kunal",
+    "engines": {
+        "vscode": "^1.85.0"
+    },
+    "main": "./out/extension.js",
+    "activationEvents": [
+        "onStartupFinished",
+        "onDebug"
+    ],
+    "contributes": {
+        "views": {
+            "debug": [
+                {
+                    "id": "the.watcher.events",
+                    "name": "The Watcher: Events"
+                }
+            ]
+        },
+        "commands": [
+            {
+                "command": "the.watcher.clear",
+                "title": "The Watcher: Clear Events"
+            },
+            {
+                "command": "the.watcher.open",
+                "title": "The Watcher: Open Source"
+            }
+        ],
+        "menus": {
+            "view/title": [
+                {
+                    "command": "the.watcher.clear",
+                    "when": "view == the.watcher.events",
+                    "group": "navigation"
+                }
+            ]
+        }
+    },
+    "scripts": {
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./"
+    },
+    "dependencies": {
+        "ws": "^8.18.0"
+    },
+    "devDependencies": {
+        "@types/node": "^20.0.0",
+        "@types/vscode": "^1.85.0",
+        "@types/ws": "^8.5.10",
+        "typescript": "^5.4.0"
+    }
+}
